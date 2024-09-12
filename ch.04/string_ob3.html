@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 문자 객체 </title>
+<script>
+	var userEmail = prompt("당신의 이메일 주소는?", "");
+	var arrUrl = [".co.kr", ".com", ".net", ".or.kr", ".go.kr"];
+
+	var check1 = false; 
+	var check2 = false;
+
+	if( userEmail.indexOf("@") > 0 ) { check1=true; }   //이메일유효성 검사 @정상적으로작성하면 check1에 ture저장
+
+	for(var i = 0; i < arrUrl.length; i++) {    //arrUrl 데이터개수(5)반환
+		if( userEmail.indexOf(arrUrl[i]) > 0 ) {    //입력한이메일과 arrUrl단어와 하나씩 비교하여 
+			check2 = true;                          //1개의 단어라도 일치 check1에 ture저장
+		} 
+	}
+
+	if( check1 && check2 ) {
+		document.write( userEmail );
+	} else {
+		alert("이메일 형식이 잘못되었습니다.");
+	}
+</script>
+</head>
+<body>
+</body>
+</html>
