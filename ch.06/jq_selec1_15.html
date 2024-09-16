@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 인접 관계 선택자 </title>  
+
+<script src="js/jquery.js"></script>
+<script>    //가장 가까운 상위 요소 선택자
+	$(function(){   //상위요소에서 가장 가짜운 <div> 선택
+		$(".txt1").closest("div")   //<div>
+		.css({                      //      <div>
+			"border":"2px solid #f00"//         <p class="txt1">내용</p>
+		});                         //      </div>
+	});                             //</div>
+</script>
+</head>
+<body>
+	<h1 class="title">선택자</h1>
+	<div>
+		<div>
+			<p class="txt1">내용</p>
+		</div>
+	</div>
+</body>
+</html>
