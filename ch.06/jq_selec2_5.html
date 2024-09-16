@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 위치 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>    //nth-child(숫자n), nth-last-child(n) 선택자
+	$(function(){
+		$("#menu1 li:nth-child(1)") //a nth-child(2) 선택한 요소 무리중 두번째 li태그를 가리킴
+		.css({"background-color":"#ff0"});
+
+		$("#menu1 li:nth-child(2n)")    //b nth-child(2n)은 선택한 요소의 무리중 2배수의li태그를 가리킴
+		.css({"border":"2px dashed #f00"});
+
+		$("#menu2 li:nth-last-child(2)")    //c nth-last-child(2) 선택한 무리중 마지막에서 지정숫자2 요소를 선택
+		.css({"background-color":"#0ff"});
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+		<li>내용1-1</li>    <!-- a-->
+		<li>내용1-2</li>    <!-- b-->
+		<li>내용1-3</li>    <!-- b-->
+		<li>내용1-4</li>    <!-- b-->
+	</ul>   
+	<ul id="menu2">
+		<li>내용2-1</li>   
+		<li>내용2-2</li>    <!-- c-->
+		<li>내용2-3</li>    
+	</ul>
+</body>
+</html>
