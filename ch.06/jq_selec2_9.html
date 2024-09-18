@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 제이쿼리 배열 관련 메서드 </title>  
+<script src="js/jquery.js"></script>
+<script>    //$.inArray(), $.isArray(), $.merge() 메서드
+	$(function(){
+		var arr1 = ["서울", "대전", "부산", "전주"];
+		var arr2 = ["한국", "미국", "일본", "중국"];
+		var obj = {
+			"name":"정부장", 
+			"area":"서울"
+		}
+		
+		var idxNum = $.inArray("부산", arr1);   //변수arr1이 참조하는 배열객체에 부산이 몇번째인덱스에 포함되어있는지 확인,오름차순
+		console.log(idxNum);    //2
+
+		var okArray1 = $.isArray(arr1);
+		var okArray2 = $.isArray(obj);
+		console.log(okArray1);  //배열객체면 true
+		console.log(okArray2);  //배열객체가 아니면 false
+
+		$.merge(arr2, arr1);
+		console.log(arr2);  //["한국". "미국". "일본". "중국". "서울". "대전". "부산". "전주"]
+	});
+</script>
+</head>
+<body>
+</body>
+</html>
