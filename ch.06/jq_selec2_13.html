@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 콘텐츠 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>    //contains(), contents(), has(), not(), end() 탐색 선택자
+	$(function(){
+		$("#inner_1 p:contains(내용1)") //선택한 <p>요소중 "내용1"을 포함하는 요소만 선택
+		.css({"background-color":"#ff0"}); //노란색
+
+		$("#inner_1 p:has(strong)") //선택한 <p>요소 중 strong요소를 포함하는 요소만 선택
+		.css({"background-color":"#0ff"});  //아쿠아색
+
+		$("#outer_wrap").contents( )    //id값이 outer_wrap인 요소의 하위요소에 텍스트와 태그노드 선택
+		.css({"border":"1px dashed #00f"});
+
+		$("#inner_2 p").not(":first")   //id값이 inner_2인 요소의 하위<p>요소에서 첫번째요소만 제외하고 선택
+		.css({"background-color":"#0f0"});
+
+		$("#inner_2 p").eq(2).end() //id값이 inner_2인 요소의 하위<p>요소에서 인덱스 2인요소를 선택
+		.css({"color":"#f00"}); //그러나 다시end() 메서드를 적용하기 때문에 인덱스를 선택하기 전의 선택자가 적용
+	});
+</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>콘텐츠 탐색 선택자</h1>
+		<section id="inner_1">  <!-- 두께가 1px인 파란색 파선이 생성-->
+			<h1>contains( ), contents( ), has( )</h1>
+			<p><span>내용1</span></p>
+			<p><strong>내용2</strong></p>
+			<p><span>내용3</span></p>
+		</section>
+		<section id="inner_2">
+			<h1>not( ), end( )</h1>
+			<p>내용4</p>    <!--글자 빨간색 적용-->
+			<p>내용5</p>    <!--글자 빨간색, 배경 초록색 적용-->
+			<p>내용6</p>    <!--글자 빨간색, 배경 초록색 적용-->
+		</section>  
+	</div>
+</body>
+</html>

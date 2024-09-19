@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 속성 조작 메서드/객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>    //attr(), removeAttr() 메서드
+	$(function( ){
+		var srcVal = $("#sec_1 img").attr("src");   //id값이 sec_1인 요소의 하위<img>요소 선택하여src값을 srcVal에 저장
+		console.log(srcVal);
+
+		$("#sec_1 img")     //id값이 sec_1인 요소의 하위<img>요소를 선택하여 각각의 값을 지정한 값으로 바꾸거나 새로 지정
+		.attr({ //생성 
+			"width":200,
+			"src": srcVal.replace("1.jpg","2.jpg"),
+			"alt": "바위"
+		})
+		.removeAttr("border");  //삭제
+	});
+</script>
+</head>
+<body>
+	<h1><strong>객체 조작 및 생성</strong></h1>
+	<section id="sec_1">
+		<h2>이미지 속성</h2>
+		<p>
+            <img src="images/math_img_1.jpg" alt="바위" border="2">
+        </p>
+	</section>
+</body>
+</html>

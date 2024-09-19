@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 속성 조작 메서드/객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>    //addClass(), removeClass(), toggleClass(), hasClass() 메서드
+	$(function( ){
+		$("#p1").addClass("aqua");  //class값 생성
+		$("#p2").removeClass("red");    //class값 삭제
+		$("#p3").toggleClass("green");  //class값이 있으면 삭제하고 없으면 생성
+		$("#p4").toggleClass("green");  
+		$("#p6").text($("#p5").hasClass("yellow")); //지정한 class값이 있으면 true,없으면 false
+	});
+</script>
+<style>
+	.aqua{background-color:#0ff;}
+	.red{background-color:#f00;}
+	.green{background-color:#0f0;}
+	.yellow{background-color:#ff0;}
+</style>
+</head>
+<body>
+	<p id="p1">내용1</p>    <!--아쿠아 배경-->
+	<p id="p2" class="red">내용2</p>
+	<p id="p3">내용3</p>    <!--초록색 배경-->
+	<p id="p4" class="green">내용4</p>
+	<p id="p5" class="yellow">내용5</p> <!--처음부터 노란색 배경-->
+	<p id="p6"></p>
+</body>
+</html>
