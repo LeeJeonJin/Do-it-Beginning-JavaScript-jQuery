@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 포커스 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>    //focus()/ blur()/focusin()/ focusout()
+$(function(){
+	$("#user_id_1, #user_pw_1").on("focus",   //포커스가 입력요소를 이동하면 배경색을 분홍색 변경하고
+	function(){                             //다른요소로 이동하면 다시 배경색 흰색으로 변경
+					$(this)
+					.css({"background-color":"pink"});
+	});
+	$("#user_id_1, #user_pw_1").on("blur",
+	function(){
+					$(this)
+					.css({"background-color":"#fff"});
+	});
+
+	$("#frm_2").on("focusin",               //포커스가 이벤트 대상요소에서 입력요소로 이동하면
+	function(){                     //이벤트가 발생한 요소<form id="frm_2">의 배경색 분홍색 변경
+					$(this)
+					.css({"background-color":"pink"});
+	});
+	$("#frm_2").on("focusout",
+	function(){
+					$(this)
+					.css({"background-color":"#fff"});
+	});
+});
+</script>
+</head>
+<body>
+<h1>focus / blur</h1>
+<form action="#">
+	<p>
+		<label for="user_id_1">ID</label>
+		<input type="text" 
+		name="user_id_1" id="user_id_1">
+	</p>
+	<p>
+		<label for="user_pw_1">PW</label>
+		<input type="password" 
+		name="user_pw_1" id="user_pw_1">
+	</p>
+</form>
+<h1>focusin / focusout</h1>
+<form action="#" id="frm_2">
+	<p>
+		<label for="user_id_2">ID</label>
+		<input type="text" 
+		name="user_id_2" id="user_id_2">
+	</p>
+	<p>
+		<label for="user_pw_2">PW</label>
+		<input type="password" 
+		name="user_pw_2" id="user_pw_2">
+	</p>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 단독/그룹 이벤트 등록 메서드 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+	$(".btn1").click(function(){    //사용자가 버튼1을 클릭하면 <p>내용1</p>의
+		$(".btn1").parent().next()  //글자를 빨간색으로 변경
+		.css({"color":"#f00"});
+	});
+
+	$(".btn2").on({
+		"mouseover focus": function() { //사용자가 버튼2에 마우스포인터를 올리거나 포커스를 이동하면
+			$(".btn2").parent().next()  //<p내용2</p>의 글자를 초록색으로 변경
+			.css({"color":"#0f0"});
+		},
+		"mouseout blur": function() {   //사용자가 버튼2에서 다른요소로 마우스포인터를 옮기거나 포커스를 
+			$(".btn2").parent().next()  //이동하면 <p내용2</p>의 글자를 검은색으로 변경
+			.css({"color":"#000"});
+		},
+	});   
+});
+</script>
+</head>
+<body>
+	<p>
+	<button class="btn1">버튼1</button>
+	</p>
+	<p>내용1</p>
+	<p>
+		<button class="btn2">버튼2</button>
+	</p>
+	<p>내용2</p>
+</body>
+</html>

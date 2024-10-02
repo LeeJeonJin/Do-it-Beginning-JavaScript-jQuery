@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 그룹 이벤트 등록 메서드 </title>  
+<script src="js/jquery.js"></script>
+<script>    //on() 메서드
+$(function(){
+		$(".btn_1.on").on("mouseover focus", function() {   //이벤트등록하고
+			alert("HELLO!");                    //class값을 생성하면 이벤트가 
+		});                                     //정상적으로 등록되지 않는다
+		$(".btn_1").addClass("on");
+
+		$(document).on("mouseover focus",".btn_2.on", function() {
+				alert("WELCOME!");      //라이브 이밴트 등록 방식으로 이벤트를 등록한 다음
+		});                             //class값을 생성하면 이벤트가 정상적으로 등록된다.
+		$(".btn_2").addClass("on");
+});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p><button class="btn_1">버튼1</button></p>
+		<p><button class="btn_2">버튼2</button></p>
+	</div>
+</body>
+</html>
