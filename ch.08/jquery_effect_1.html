@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과 메서드 </title>  
+<script src="js/jquery.js"></script>
+<script>    //fadeTo() 메서드
+$(function( ) {    
+	$(".btn2").hide();
+
+	$(".btn1").on("click", function( ) {
+		$(".box").slideUp(1000, "linear",
+		function( ) {
+			$(".btn1").hide( );    //slieUp버튼을 클릭하면 class값이 box인 요소가 위로 접히며 숨겨짐
+			$(".btn2").show( );   //그럼다음 콜백 함수가 실행되어 slieUp버튼은 숨겨지고 faden버튼 나타남
+		});
+	});
+
+	$(".btn2").on("click", function( ) {
+		$(".box").fadeIn(1000, "swing", 
+		function( ) {
+			$(".btn2").hide( );
+			$(".btn1").show( );
+		});
+	});
+
+	$(".btn3").on("click", function( ) {    //toggleSlide버튼을 클릭하면 class값이
+		$(".box").slideToggle(1000, "linear");  //box인 요소가 접히거나 펴짐
+	});
+
+	$(".btn4").on("click", function( ) {    //fadeTo(0,3)을 클릭하면 class값이 box인
+		$(".box").fadeTo("fast", 0.3);  //요소가 70% 투명해짐
+	});
+
+	$(".btn5").on("click", function( ) {   
+		$(".box").fadeTo("fast", 1);    //다시 클릭하면 투명화를 취소
+	});
+
+});
+</script>
+<style>
+	.content{
+		width:400px;
+		background-color: #eee;
+	}
+</style>
+</head>
+<body>
+	<p>
+		<button class="btn1">slideUp</button>
+		<button class="btn2">fadeIn</button>
+	</p>
+	<p>
+		<button class="btn3">toggleSide</button>
+	</p> 
+	<p>
+		<button class="btn4">fadeTo(0.3)</button>
+		<button class="btn5">fadeTo(1)</button>
+	</p>   
+	<div class="box">
+		<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat consectetur nibh, ut luctus urna placerat non. Phasellus consectetur nunc nec mi feugiat egestas. Pellentesque et consectetur mauris, sed rutrum est. Etiam odio nunc, ornare quis urna sed, fermentum fermentum augue. Nam imperdiet vestibulum ipsum quis feugiat. Nunc non pellentesque diam, nec tempor nibh. Ut consequat sem sit amet ullamcorper sodales.
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> not() 메서드 </title>
+<style>
+	*{margin:0;padding:0;box-sizing:border-box;}
+	body{padding:20px;}
+	li{list-style:none;}
+	a{text-decoration: none;color: #000;}
+	.gnb{width:400px;text-align: center;overflow: hidden;}
+	.gnb li{width:25%;float: left;padding:5px;}
+	.gnb li a{border: 1px solid #000;display: block;padding:5px 0;}
+</style>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	var beforeMenu = null;
+	$(".gnb > li > a").on("mouseover focus", function() { //메뉴목록<a>에 포인터 올리거나 포커스 이동 입벤트 발생
+		if(beforeMenu) beforeMenu.css({background:"none"});
+		$(this).css({"background-color":"#0ff"});	//이벤트 발생시 <a>배경색 #0ff활성화, 화성화된 다른메뉴는 비활성화
+		beforeMenu = $(this);
+	});
+	$(".gnb").on("mouseleave", function() {	//포인터가 class값 gnb인요소를 벗어나면 메뉴전체를 원래의색으로 바꿈
+		if(beforeMenu) beforeMenu.css({background:"none"});
+	});
+});
+</script>
+</head>
+<body>
+	<ul class="gnb">
+		<li><a href="#">menu1</a></li>
+		<li><a href="#">menu2</a></li>
+		<li><a href="#">menu3</a></li>
+		<li><a href="#">menu4</a></li>
+	</ul>
+</body>
+</html>
